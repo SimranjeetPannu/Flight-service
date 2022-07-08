@@ -1,0 +1,23 @@
+{
+  "name": "npm-project1",
+  "version": "1.0.0",
+  "description": "A project on flight service",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [
+    "[\"flight",
+    "service\"",
+    "\"express\"]"
+  ],
+  "author": "Simranjeet Pannu",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mongoose": "^6.4.0"
+  }
+}
