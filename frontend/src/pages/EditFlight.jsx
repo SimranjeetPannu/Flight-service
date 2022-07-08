@@ -45,9 +45,12 @@ export const  EditFlight = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    
+    let currNumOfPassengers = flight.currNumOfPassengers;
+    let passengerLimit = flight.passengerLimit;
+    if(currNumOfPassengers<=passengerLimit)
+    {    
 
-  try {
+    try {
         console.log(flight);
 
         axios.put(`http://localhost:8085/flights/${id}` ,flight)
@@ -56,13 +59,12 @@ export const  EditFlight = () => {
         
     } catch (error) {
         console.log('Something went wrong during database update');
-    }
-}
+    }}
+    else
+    alert('flight cannot be overloaded');
+  }
  //Return Form for Editing
- let currNumOfPassengers =flight.currNumOfPassengers;
- let passengerLimit = flight.passengerLimit;
- if(currNumOfPassengers<=passengerLimit){
-  
+ 
   
   return (
   <div>
@@ -135,6 +137,7 @@ export const  EditFlight = () => {
             className="form-control"
             name="currNumOfPassengers"
             value={flight.currNumOfPassengers}
+            max ={flight.passengerLimit}
             placeholder='10'
             onChange={changeHandler}
             />
@@ -157,9 +160,6 @@ export const  EditFlight = () => {
       </div>
     </form>
   </div>
-  );}
-  else{
-    alert('Flight is full, cannot be overloaded');
-    window.location = '/';
-  }
+  );
+ 
 } 

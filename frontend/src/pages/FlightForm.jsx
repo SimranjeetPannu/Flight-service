@@ -19,7 +19,10 @@ export const FlightForm = () => {
   // This function will handle the submission.
   const onSubmit = async (event) => {
     event.preventDefault();
-
+    let currNumOfPassengers = flight.currNumOfPassengers;
+    let passengerLimit = flight.passengerLimit;
+    if(currNumOfPassengers<=passengerLimit)
+    {
     try {
       console.log(flight);
       await axios
@@ -28,20 +31,18 @@ export const FlightForm = () => {
       window.location = "/";
     } catch (error) {
       console.log("Something went wrong!");
-    }
+    }}
+    else
+    alert('flight cannot be overloaded');
   };
   
   
-  const changeHandler = (e) => {
-    let currNumOfPassengers =flight.currNumOfPassengers;
-    let passengerLimit = flight.passengerLimit;
-    if(currNumOfPassengers>passengerLimit)
-    alert ("Flight cannot be overloaded.");
-    else
-     {
-    setFlight({ ...flight, [e.target.name]: e.target.value });
   
-  };}
+  const changeHandler = (e) => {
+    
+    setFlight({ ...flight, [e.target.name]: e.target.value });
+    
+  };
 
 
   

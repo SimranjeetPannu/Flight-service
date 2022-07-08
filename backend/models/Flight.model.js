@@ -58,14 +58,14 @@ const flightSchema = new Schema({
     currNumOfPassengers: {
         type: Number,
         required : true,
-        min: [0, 'Minimum capacity is 0'],
+        min: [1, 'Minimum capacity is 1'],
         max: [50, 'Maximum flight capacity is 50']
     },
    
     passengerLimit: {
         type: Number,
         required :true,
-        min: [0, 'Minimum capacity is 0'],
+        min: [1, 'Minimum capacity is 1'],
         max: [50, 'Maximum flight capacity is 50']
     }
 },{

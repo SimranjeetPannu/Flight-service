@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-//Displaying List of Flights in Table view
+//Displaying List of Flights in Table viewgit 
 const Flight = (props) => (
   <tr>
     <td>
@@ -55,9 +55,9 @@ export const FlightList = () => {
         console.log(error);
       });
   }, []);
-
+  //Delete flight using id
   const deleteFlight = (id) => {
-    axios.delete("http://localhost:8085/flights/" + id).then((response) => {
+    axios.delete(`http://localhost:8085/flights/{$id}`).then((response) => {
       console.log(response.data);
     });
 
